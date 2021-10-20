@@ -2,10 +2,10 @@
 """ Module for storing the async_generator coroutine. """
 import asyncio
 from random import uniform
-from typing import Iterator
+from typing import AsyncIterator
 
 
-async def async_generator() -> Iterator[float]:
+async def async_generator() -> AsyncIterator[float]:
     """ Waits for a second and tields a random number """
     i = 10
     while i > 0:
