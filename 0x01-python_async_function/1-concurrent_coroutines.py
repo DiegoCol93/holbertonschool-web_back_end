@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """ Module for storing a basic asyncio sample. """
 import asyncio
-import asyncio
 from random import uniform
 
 wait_random = __import__('0-basic_async_syntax').wait_random
