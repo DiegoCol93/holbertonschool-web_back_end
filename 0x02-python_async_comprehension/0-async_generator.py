@@ -7,8 +7,6 @@ from typing import AsyncIterator
 
 async def async_generator() -> AsyncIterator[float]:
     """ Waits for a second and tields a random number """
-    i = 10
-    while i > 0:
+    for _ in range(10):
         await asyncio.sleep(1)
-        i -= 1
         yield uniform(0, 10)
