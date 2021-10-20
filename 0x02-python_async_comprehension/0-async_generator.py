@@ -10,5 +10,5 @@ async def async_generator() -> AsyncIterator[float]:
     i = 10
     while i > 0:
         await asyncio.sleep(1)
-        yield uniform(0, 10)
         i -= 1
+        yield uniform(0, 10)
