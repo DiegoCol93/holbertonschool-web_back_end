@@ -6,7 +6,7 @@ from random import uniform
 async_generator = __import__('0-async_generator').async_generator
 
 
-async def async_comprehension():
+async def async_comprehension() -> list:
     """ Uses the async_generator with an async comprehension. """
     result = []
     async for i in async_generator():
