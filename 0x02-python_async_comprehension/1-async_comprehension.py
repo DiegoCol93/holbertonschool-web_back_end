@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+""" Module for storing the async_comprehension method. """
+import asyncio
 from typing import List
 
 
