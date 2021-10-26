@@ -102,26 +102,26 @@ class LFUCache(BaseCaching):
 
 #             if len(self.better_dictionary) > self.MAX_ITEMS:
 
-#                 # Obtain least accessed value with order. ━━━━━━━━━━━━━━━━━━━━━
+#                 # Obtain least accessed value with order. ━━━━━━━━━━━━━━━━━━━
 #                 min_value = min([
 #                     dictionary["order"]
 #                     for dictionary
 #                     in list(self.better_dictionary.values())
 #                 ])
 
-#                 # Obtain the least frequently accessed value with "hits". ━━━━━━
+#                 # Obtain the least frequently accessed value with "hits". ━━━
 #                 least_frequent = min(
 #                     dictionary["hits"]
 #                     for dictionary
 #                     in list(self.better_dictionary.values())
 #                 )
 
-#                 # Pop the extra key from the dictionary. ━━━━━━━━━━━━━━━━━━━━━━
+#                 # Pop the extra key from the dictionary. ━━━━━━━━━━━━━━━━━━━
 #                 for key, value in self.better_dictionary.items():
 #                     if value["order"] == min_value:
 #                         key_to_pop = key
 
-#                 # Print and pop. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#                 # Print and pop. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #                 print("DISCARD: {}".format(key_to_pop))
 #                 self.better_dictionary.pop(key_to_pop)
 #                 self.cache_data.pop(key_to_pop)
