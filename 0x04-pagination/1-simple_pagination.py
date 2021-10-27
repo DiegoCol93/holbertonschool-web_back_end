@@ -32,7 +32,7 @@ class Server:
         if index[0] > len(self.__dataset):
             return []
         results = []
-        for row in self.__dataset[index[0], index[1]]:
+        for row in self.__dataset[index[0]: index[1]]:
             results.append(row)
         return results
 
