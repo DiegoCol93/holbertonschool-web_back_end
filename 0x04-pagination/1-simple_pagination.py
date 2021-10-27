@@ -24,7 +24,6 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """ Pagination method to return index of a page and offset.  """
-        print(page, page_size)
         assert (type(page) == int and page > 0)
         assert (type(page_size) == int and page_size > 0)
         index = self.index_range(page, page_size)
