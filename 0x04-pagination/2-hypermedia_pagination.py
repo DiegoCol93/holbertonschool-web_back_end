@@ -64,6 +64,6 @@ class Server:
             "data": results,
             "next_page": next,
             "prev_page": prev,
-            "total_pages": len(self.__dataset + 1) // page_size
+            "total_pages": math.ceil(len(self.__dataset) / page_size)
         }
         return(data)
