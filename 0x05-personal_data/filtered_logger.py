@@ -31,3 +31,7 @@ def filter_datum(fields: List[str], redaction: str,
         message = re.sub(r'({}=)(.+?){}'.format(field, separator),
                          r'\1{}{}'.format(redaction, separator), message)
     return(message)
+
+
+def get_logger() -> logging.Logger:
+    """  """
