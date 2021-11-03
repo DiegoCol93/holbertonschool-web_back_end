@@ -22,11 +22,13 @@ class Auth:
         else:
             return True
 
-
     def authorization_header(self, request=None) -> str:
-        """ Returns None ¯\_(ツ)_/¯.  """
-        return None
+        """ Validates all requests to secure the API.  """
+        if request and "Authorization" in request.keys():
+            return request["Authorization"]
+        else:
+            return None
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """ Returns None ¯\_(ツ)_/¯.  """
+        """ Returns None. """
         return None
