@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ Basic Authentication module. """
 from flask import request
-from typing import List, TypeVar
+from typing import List, TypeVar, Union
 
 
 class Auth:
@@ -22,7 +22,7 @@ class Auth:
         else:
             return True
 
-    def authorization_header(self, request=None) -> str:
+    def authorization_header(self, request=None) -> Union[str, None]:
         """ Validates all requests to secure the API. """
         if request and "Authorization" in request.headers:
             return request.headers["Authorization"]
