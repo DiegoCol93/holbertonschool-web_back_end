@@ -24,7 +24,6 @@ class Auth:
 
     def authorization_header(self, request=None) -> str:
         """ Validates all requests to secure the API. """
-        print(dir(request))
         if request and "Authorization" in request.headers:
             return request.headers["Authorization"]
         else:
