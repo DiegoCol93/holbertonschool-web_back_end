@@ -15,6 +15,7 @@ if getenv('AUTH_TYPE') == 'auth':
     from api.v1.auth.auth import Auth
     auth = Auth()
 
+
 @app.before_request
 def before_request():
     """ Method to be ran before the incoming request. """
@@ -29,6 +30,7 @@ def before_request():
                 abort(403)
     else:
         pass
+
 
 @app.errorhandler(404)
 def not_found(error) -> str:
