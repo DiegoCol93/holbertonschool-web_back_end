@@ -1,1 +1,3 @@
-# 0x08. User authentication service.
+# 0x08-user_authentication_service
+
+* Understanding an authentication system
