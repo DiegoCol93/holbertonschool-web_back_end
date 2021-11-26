@@ -6,6 +6,6 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 @app.route('/', methods["GET"])
-def root() -> render_template:
+def root() -> str:
     """ Root route of the application. """
     return render_template("0-index.html")
