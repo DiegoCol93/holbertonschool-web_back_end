@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 0. Writing strings to Redis """
+""" 0x0B. Redis basic module """
 from typing import Union, Callable
 from functools import wraps
 from uuid import uuid4
