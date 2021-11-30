@@ -21,6 +21,7 @@ def set_page(method: Callable) -> Callable:
 
         text = method(url)
         cache.setex(f"cached:{url}", 10, text)
+        return text
     return cache_in
 
 
