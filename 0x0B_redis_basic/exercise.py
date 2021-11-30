@@ -22,10 +22,14 @@ class Cache:
     def get(self, key: str, fn: Callable=None):
         """ Custom redis get method. """
         value = self._redis.get(key)
-        if fn:
+        if fn and value:
             value = fn(value)
         return(value)
 
-    # def get_str(self, key):
-    #     """ Custom get string method. """
-    #     return str(self._redis.get())
+    def get_str(self, key: str):
+        """ Custom get str method. """
+        return(self.get(key, str))
+
+    def get_int(self):
+        """ Custom get int method. """
+        return(self.get(key, int))
