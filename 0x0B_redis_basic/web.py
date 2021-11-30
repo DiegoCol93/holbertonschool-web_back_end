@@ -5,6 +5,7 @@ from typing import Callable
 from functools import wraps
 import redis
 
+
 def set_page(method: Callable) -> Callable:
     """ Decorator method to store the count of hits to a url. """
     @wraps(method)
@@ -21,5 +22,3 @@ def get_page(url: str) -> str:
     """ Obtains the HTML content of a URL and returns it. """
     r = GET(url)
     return r.text
-
-get_page("http://slowwly.robertomurray.co.uk")
