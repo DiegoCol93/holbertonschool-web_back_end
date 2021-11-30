@@ -7,12 +7,18 @@ import redis
 
 cache = redis.Redis()
 
+
 def set_page(method: Callable) -> Callable:
     """ Decorator method to store the count of hits to a url. """
     @wraps(method)
     def cache_in(url):
         """ Inner decorator method. """
         cache.incr(f"count:{url}", 1)
+
+        cached_html = cache.get(f"cached:{url}")
+        if cached_html:
+            return cached_html.decode('utf-8')
+
         text = method(url)
         cache.setex(f"count:{url}", 10, text)
     return cache_in
