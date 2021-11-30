@@ -15,7 +15,7 @@ def set_page(method: Callable) -> Callable:
         """ Inner decorator method. """
         cache.incr(f"count:{url}", 1)
 
-        cached_html = cache.get(f"cached:{url}")
+        cached_html = cache.get(f"count:{url}")
         if cached_html:
             return cached_html.decode('utf-8')
 
