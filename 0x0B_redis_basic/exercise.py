@@ -7,7 +7,7 @@ import redis
 
 
 def count_calls(method: Callable) -> Callable:
-    """ Decorator function to count calls to the Cache calss methods. """
+    """ Decorator method to count calls to the Cache calss methods. """
     @wraps(method)
     def counter(self, data):
         """
@@ -19,6 +19,18 @@ def count_calls(method: Callable) -> Callable:
     return counter
 
 
+def call_history(method: Callable) -> Callable:
+    """ Stores history of inputs and outputs for the given method. """
+    @wraps(method)
+    def history(self, data):
+        """ Stores history of inputs and outputs for the given method. """
+        self._redis.rpush(method.__qualname__ + ":inputs", str(data))
+        out = method(self, data)
+        self._redis.rpush(method.__qualname__ + ":outputs", out)
+        return out
+    return history
+
+
 class Cache:
     """ Basic cache redis class. """
 
@@ -27,6 +39,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
+    @call_history
     @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """ Generates a UUID, and stores the data in Redis. """
