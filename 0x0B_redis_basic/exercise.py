@@ -22,11 +22,12 @@ def count_calls(method: Callable) -> Callable:
 def call_history(method: Callable) -> Callable:
     """ Stores history of inputs and outputs for the given method. """
     @wraps(method)
-    def history(self, args):
+    def history(self, data):
         """ Stores history of inputs and outputs for the given method. """
-        self._redis.rpush(method.__qualname__ + ":inputs", str(args))
-        out = method(self, args)
-        self._redis.rpush(method.__qualname__ + ":outputs", str(out))
+        self._redis.rpush(method.__qualname__ + ":inputs",
+                          str("('" + data + "',)"))
+        out = method(self, data)
+        self._redis.rpush(method.__qualname__ + ":outputs", out)
         return out
     return history
 
